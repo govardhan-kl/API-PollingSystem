@@ -12,6 +12,9 @@ const optionSchema = new mongoose.Schema({
     votes:{
         type: Number,
         default: 0
+    },
+    add_votes:{
+        type: String
     }
 },{
     timestamps:true

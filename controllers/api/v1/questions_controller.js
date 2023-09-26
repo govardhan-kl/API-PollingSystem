@@ -30,8 +30,10 @@ module.exports.create_options = async function(req,res){
                 text: req.body.text,
                 question: req.params.id
             })
+            option.add_votes = `http://127.0.0.1:9999/api/v1/options/${option.id}/add_vote`
+            await option.save()
             ques.options.push(option)
-            ques.save()
+            await ques.save()
 
             return res.status(200).json({
                 message:'Succesfully created Option',
@@ -98,6 +100,9 @@ module.exports.display = async function(req,res){
                 ques
             })
         }
+        return res.status(400).json({
+            message:'Not a valid question id',
+        })
         
 
     }
