@@ -1,6 +1,7 @@
 let Questions = require('../../../models/questions');
 let Options = require('../../../models/options');
 
+// create a question
 module.exports.create  = async function(req,res){
     try{
         console.log(req.body)
@@ -19,7 +20,7 @@ module.exports.create  = async function(req,res){
 }
 
 
-
+// create option for a  particular question
 module.exports.create_options = async function(req,res){
     try{
         console.log(req.url,req.params.id)
@@ -53,7 +54,7 @@ module.exports.create_options = async function(req,res){
 }
 
 
-
+//delete a question
 module.exports.delete = async function(req,res){
     try{
         console.log(req.url,req.params.id)
@@ -90,6 +91,7 @@ module.exports.delete = async function(req,res){
 }
 
 
+//fetch a question
 module.exports.display = async function(req,res){
     try{
         console.log(req.url,req.params.id)

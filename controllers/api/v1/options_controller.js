@@ -1,5 +1,6 @@
 const Options = require('../../../models/options');
 
+// to delete a option
 module.exports.deleteOption = async function(req,res){
     try{
         let id = req.params.id;
@@ -33,6 +34,7 @@ module.exports.deleteOption = async function(req,res){
 }
 
 
+// to add a vote to a particular option
 module.exports.add_vote = async function(req,res){
     try{
         let id = req.params.id;
