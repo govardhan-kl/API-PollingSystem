@@ -1,4 +1,5 @@
 const Options = require('../../../models/options');
+const Questions = require('../../../models/questions');
 
 // to delete a option
 module.exports.deleteOption = async function(req,res){
@@ -13,6 +14,9 @@ module.exports.deleteOption = async function(req,res){
         }
         if(option.votes == 0){
             await Options.findByIdAndDelete(id)
+            const ques = await Questions.findById(option.question);
+            ques.options.pop(id);
+            ques.save()
             return res.status(200).json({
                 message:'Option succesfully deleted',
                 option
